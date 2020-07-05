@@ -1,0 +1,19 @@
+#  To run in the foreground
+#  > docker-compose up
+#
+#  To run in the background and tail the logs
+#  > docker-compose up -d
+#  > docker-compose logs -f
+#
+#  Subsequent builds for any changes in dockerfile.
+#  > docker-compose build
+
+version: "3"
+services:
+  sqs:
+    image: roribio16/alpine-sqs:latest
+    container_name: alpine-sqs
+    ports:
+      - ${SQS_PORT}:9324
+    stdin_open: true
+    tty: true
